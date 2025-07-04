@@ -4,6 +4,8 @@ import com.openbox.user.domain.User;
 import com.openbox.user.dto.SignupRequest;
 import com.openbox.user.dto.UserResponse;
 import com.openbox.user.repository.UserRepository;
+import com.openbox.user.security.JwtTokenProvider;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

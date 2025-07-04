@@ -1,6 +1,5 @@
 package com.openbox.user.security;
 
-import com.openbox.user.service.JwtTokenProvider;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import lombok.RequiredArgsConstructor;
