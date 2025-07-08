@@ -16,7 +16,6 @@ import com.openbox.user.dto.UserResponse;
 import org.springframework.http.ResponseEntity;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.Operation;
 
 @Tag(name = "사용자 API", description = "회원 마이페이지, 정보 수정 등")
 @RestController
