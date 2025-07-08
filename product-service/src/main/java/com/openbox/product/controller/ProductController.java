@@ -39,4 +39,30 @@ public class ProductController {
         List<ProductResponse> products = productService.getAllProducts();
         return ResponseEntity.ok(products);
     }
+
+    @Operation(summary = "상품 상세 조회")
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
+        ProductResponse product = productService.getProductById(id);
+        return ResponseEntity.ok(product);
+    }
+
+    @Operation(summary = "내가 등록한 상품 목록 조회")
+    @GetMapping("/me")
+    public ResponseEntity<List<ProductResponse>> getMyProducts(@AuthenticationPrincipal UserDetails userDetails) {
+        String email = userDetails.getUsername();
+        List<ProductResponse> products = productService.getMyProducts(email);
+        return ResponseEntity.ok(products);
+    }
+
+    @Operation(summary = "상품 삭제")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteProduct(
+            @PathVariable Long id,
+            @AuthenticationPrincipal UserDetails userDetails
+    ) {
+        String email = userDetails.getUsername(); // JWT에서 추출된 사용자 이메일
+        productService.deleteProduct(id, email);
+        return ResponseEntity.ok("상품이 삭제되었습니다.");
+    }
 }
